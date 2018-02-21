@@ -63,7 +63,7 @@ Aka
 
 對外API
 
-Flask
+Flask part2(MVC, with MongoDB)
 
  
 
@@ -88,7 +88,11 @@ Server
 Nginx
 
  
+資料蒐集、檢索、搜尋與呈現
 
+logstash
+Elastic Stack
+kibana
  
 
  
@@ -115,14 +119,16 @@ GAN
 CNN in
 3D?
 
-Word2Vec
+Word2Vec (WordEmbedding)
+Node2Vec (Network Embedding)
+Deepwalk
 
- 
 
 Machine
 Learning related
 
 XGBoost
+Randomforest
 
 Feature
 selection(PCA, …)
