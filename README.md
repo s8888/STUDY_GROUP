@@ -104,6 +104,10 @@ Tool
 
 OCR Tool
 
+
+
+
+
 Scikit-learn 
 
  
@@ -121,6 +125,7 @@ GAN
 CNN in
 3D?
 
+
 Kaggle或近期ML/DL/AI文章分享
 
 
@@ -131,6 +136,8 @@ Word2Vec (WordEmbedding)
 Node2Vec (Network Embedding)
 
 Deepwalk
+
+
 
 
 Machine
