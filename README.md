@@ -91,7 +91,9 @@ Nginx
 資料蒐集、檢索、搜尋與呈現
 
 logstash
+
 Elastic Stack
+
 kibana
  
 
@@ -119,8 +121,15 @@ GAN
 CNN in
 3D?
 
+Kaggle或近期ML/DL/AI文章分享
+
+
+
 Word2Vec (WordEmbedding)
+
+
 Node2Vec (Network Embedding)
+
 Deepwalk
 
 
