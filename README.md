@@ -43,13 +43,14 @@ VoltDB
 
  
 
-分散式院算框架
+分散式運算框架
 
 Spark(Origin,
 SQL, Streaming, Graph…)
 
-Hadoop
+Hadoop (HIVE、HBASE、PIG...)
 
+Zookeeper
  
  
 
@@ -69,7 +70,7 @@ Flask part2(MVC, with MongoDB)
 
 資源註冊與服務發現
 
-Zookeeper
+
 
 Consul
 
