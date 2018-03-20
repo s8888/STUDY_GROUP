@@ -1,6 +1,6 @@
 # Word2vec
 
-請幫我安裝完以下套件後，打開 "0.Prepare_package.ipynb" 執行，若沒有錯誤代表環境安裝無誤。
+請幫我安裝完以下套件後，打開 "0.Prepare_package.ipynb" 執行，檢查是否安裝成功。
 
 ## 套件需求
 * numpy
