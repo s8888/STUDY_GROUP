@@ -13,7 +13,7 @@ pip3 install -U tensorflow
 ```
 * sklearn
 ```
-pip3 install -U sklearn
+pip3 install -U scikit-learn
 ```
 * jieba
 ```
