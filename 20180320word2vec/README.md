@@ -23,7 +23,8 @@ pip3 install jieba
 ```
 pip3 install -U gensim
 ```
+* [Opencc](https://github.com/BYVoid/OpenCC)(簡繁中文轉換)
 ## Dataset
 請下載下來的檔案放入 /data
 - wiki_text_tw : [zhwiki-20180301-pages-articles.xml.bz2](https://dumps.wikimedia.org/zhwiki/20180301/zhwiki-20180301-pages-articles.xml.bz2)
-- text8.zip : 請到 /data/
+- text8.zip : 請到 /data/Download_text8_file.ipynb 執行全部程式碼下載檔案
