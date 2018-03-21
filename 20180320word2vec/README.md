@@ -24,6 +24,6 @@ pip3 install jieba
 pip3 install -U gensim
 ```
 ## Dataset
-請下載下來的檔案放入
+請下載下來的檔案放入 /data
 - wiki_text_tw : [zhwiki-20180301-pages-articles.xml.bz2](https://dumps.wikimedia.org/zhwiki/20180301/zhwiki-20180301-pages-articles.xml.bz2)
 - text8.zip : 請到 /data/
