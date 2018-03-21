@@ -1,6 +1,6 @@
 # Word2vec
-
-請幫我安裝完以下套件後，打開 "0.Prepare_package.ipynb" 執行，檢查是否安裝成功。
+- 安裝完以下套件後，打開 "0.Prepare_package.ipynb" 執行，檢查是否安裝成功。
+- 依照 Dataset 說明將文件下載到 /data
 
 ## 套件需求
 * numpy
