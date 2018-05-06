@@ -1,0 +1,19 @@
+使用 Filebeat 處理 Apache access log 並在 Kibana dashboard 中檢視
+1. 設置 Filebeat dashboard 
+   $ sudo filebeatsetup --dashboards
+
+2. 停止 Filebeat 服務
+   $ sudo /bin/systemctl stop filebeat.service
+
+3. 修改設定檔
+   將 /etc/filebeat/modules.d/ 下的 apache2.yml.disabled 更名為 apache2.yml
+   並將檔案中的 access enabled 欄位設定為 true，var.paths 的路徑指到 access log 的位置
+
+4. 重啟 Filebeat 服務
+   $ sudo /bin/systemctl start filebeat.service
+
+5. 在 Kibana 中建立新的 index pattern
+   左邊 menu 的 Management -> 右邊的 Index Patterns -> Create Index Pattern -> 選擇建立名為 filebeat-* 的 index pattern
+
+6. 在 Dashboard 中找到 [Filebeat Apache2] Access and error logs，點進去後，右上角的時間選擇 access log 中記錄的時間
+
