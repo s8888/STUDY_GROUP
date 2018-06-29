@@ -1,6 +1,8 @@
 TODO TOPIC
 
 
+Serverless
+
 
 微服務框架
 
@@ -14,7 +16,6 @@ Kubernetes     
 Mesos              
 
 Slurm
-
  
 
 微批次分析
@@ -50,7 +51,7 @@ SQL, Streaming, Graph…)
 
 Hadoop (HIVE、HBASE、PIG...)
 
-Zookeeper
+
  
  
 
@@ -70,33 +71,19 @@ Flask part2(MVC, with MongoDB)
 
 資源註冊與服務發現
 
-
-
 Consul
 
 Etcd
 
- 
 
 部署
 
 Jenkins
 
  
-
 Server
 
 Nginx
-
- 
-資料蒐集、檢索、搜尋與呈現
-
-logstash
-
-Elastic Stack
-
-kibana
- 
 
  
 
@@ -106,8 +93,8 @@ Tool
 OCR Tool
 
 
-
-
+Ranking
+Learn2Rank
 
 Scikit-learn 
 
@@ -121,29 +108,17 @@ Reduction
 
 Ensemble
 
-GAN
+CNN in 3D?
 
-CNN in
-3D?
 
- 
-
+ 
+ 
+ 
 
 Kaggle或近期ML/DL/AI文章分享
 
-
-
-Word2Vec (WordEmbedding)
-
-
-Node2Vec (Network Embedding)
-
+GRU4REC
 Deepwalk
-
-
- 
-
-
 
 Machine
 Learning related
@@ -158,11 +133,9 @@ MultiLabel
 
 TimeSeries
 
- 
 
 …
 
- 
 
 Total
 Solusion in concrete situation
