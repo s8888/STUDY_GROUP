@@ -10,7 +10,7 @@ Kafka、 Zookeeper 環境建置
    (1) 建立連線
    (2) 確認 broker id 數量
        若沒抓到 3個 kafka id，需確認是Zookeeper沒正常同步，
-            (進Zookeeper container，  /bin/ ZkCli.sh -server localhost ls /brokers/ids 
+            (進Zookeeper container，  /bin/zkCli.sh -server localhost ls /brokers/ids 
              會看到 Zookeeper 此時註冊了幾個 kafka)
        還是Kafka 連 Zookeeper 時 Connection refuse(透過log)
        總之，無論哪種，重開有問題的 Container 即可
