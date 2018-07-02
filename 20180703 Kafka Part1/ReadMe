@@ -1,0 +1,47 @@
+
+Kafka、 Zookeeper 環境建置
+
+1. 使用 docker-compose 檔案
+   產生3個 zookeeper + 3 個 kafka
+   Kafka 其中一個參數 KAFKA_ADVERTISED_HOST_NAME: localhost
+   請根據 VM 的 IP 進行調整
+   
+2. 安裝 Kafka TOOL http://www.kafkatool.com/download.html
+   (1) 建立連線
+   (2) 確認 broker id 數量
+       若沒抓到 3個 kafka id，需確認是Zookeeper沒正常同步，
+            (進Zookeeper container，  /bin/ ZkCli.sh -server localhost ls /brokers/ids 
+             會看到 Zookeeper 此時註冊了幾個 kafka)
+       還是Kafka 連 Zookeeper 時 Connection refuse(透過log)
+       總之，無論哪種，重開有問題的 Container 即可
+       (最白癡的做法就是從Zookeeper開始，每個container 都 resatrt 一遍)
+
+3. 嘗試用 Kafka TOOL 加topic、Message
+
+若沒問題，環境應該就是好的
+
+
+
+Kafka client (java)
+
+1. 環境建置
+(1) 若是用 Maven 
+
+    <dependency>
+        <groupId>org.apache.kafka</groupId>
+        <artifactId>kafka_2.10</artifactId>
+        <version>0.10.0.0</version>
+    </dependency>
+
+(2) 直接用 kafka_lib.zip 裡的 jar 檔
+
+2. 程式範例
+   (1) KafkaConsumerTest.java  (消耗 message)
+   (2) KafkaProducerTest.java  (產生 message)
+
+
+
+
+
+
+       
