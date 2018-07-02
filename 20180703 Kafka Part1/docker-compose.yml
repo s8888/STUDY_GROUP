@@ -1,0 +1,90 @@
+version: '3.1'
+
+services:
+  kafka1:
+    image: wurstmeister/kafka
+    restart: always
+    hostname: kafka1
+    container_name: kafka1
+    depends_on:
+      - zoo1
+      - zoo2
+      - zoo3
+    ports:
+      -  9092:9092
+    environment:
+      KAFKA_LOG_DIRS: /kafka
+      KAFKA_BROKER_ID: 1
+      KAFKA_CREATE_TOPICS: test:2:1
+      KAFKA_ADVERTISED_PORT: 9092
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181,zoo2:2181,zoo3:2181
+  kafka2:
+    image: wurstmeister/kafka
+    hostname: kafka2
+    container_name: kafka2
+    depends_on:
+      - zoo1
+      - zoo2
+      - zoo3
+    ports:
+      -  9093:9092
+    environment:
+      KAFKA_LOG_DIRS: /kafka
+      KAFKA_BROKER_ID: 2
+      KAFKA_ADVERTISED_PORT: 9093
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181,zoo2:2181,zoo3:2181      
+  kafka3:
+    image: wurstmeister/kafka
+    hostname: kafka3
+    container_name: kafka3
+    depends_on:
+      - zoo1
+      - zoo2
+      - zoo3
+    ports:
+      -  9094:9092
+    environment:
+      KAFKA_LOG_DIRS: /kafka
+      KAFKA_BROKER_ID: 3
+      KAFKA_ADVERTISED_PORT: 9094
+      KAFKA_ADVERTISED_HOST_NAME: localhost
+      KAFKA_ZOOKEEPER_CONNECT: zoo1:2181,zoo2:2181,zoo3:2181      
+            
+  zoo1:
+    image: zookeeper
+    restart: always
+    container_name: zoo1
+    hostname: zoo1
+    ports:
+      - 2181:2181
+      - "2888"
+      - "3888"
+    environment:
+      ZOO_MY_ID: 1
+      SERVERS: zoo1, zoo2, zoo3
+  zoo2:
+    image: zookeeper
+    restart: always
+    container_name: zoo2
+    hostname: zoo2
+    ports:
+      - 2182:2181
+      - "2888"
+      - "3888"
+    environment:
+      ZOO_MY_ID: 2
+      SERVERS: zoo1, zoo2, zoo3
+  zoo3:
+    image: zookeeper
+    restart: always
+    hostname: zoo3
+    container_name: zoo3
+    ports:
+      - 2183:2181
+      - "2888"
+      - "3888"
+    environment:
+      ZOO_MY_ID: 3
+      SERVERS: zoo1, zoo2, zoo3      
