@@ -1,12 +1,12 @@
 # Flask best practice
 Topic: Flask, gunicorn, nginx
 
-### 確認環境
+### 執行
 ```
 docker-compose up -d
 docker-compose logs
 ```
-進入 jupyter notebook [localhost:8888](localhost:8888)  
+進入 jupyter notebook [localhost:8888](http://localhost:8888)  
 
 ### 確定 docker 版本
 ```
