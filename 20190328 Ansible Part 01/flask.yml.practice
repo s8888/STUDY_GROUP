@@ -1,0 +1,17 @@
+- name: deploy flask
+  hosts: node1
+  tasks:
+  - name: copy app.py and supervisord.conf
+    copy:
+      src: "{{ item.src }}"
+      dest: "{{ item.dest }}"
+    with_items:
+      - { src: files/supervisord.conf, dest: "{{ ansible_user_dir }}/supervisord.conf" }
+      - { src: files/app.py, dest: "{{ ansible_user_dir }}/app.py" }
+  - name: copy app.ini
+    template:
+       src: templates/app.ini
+       dest: "{{ ansible_user_dir }}/app.ini"
+  - name: run supervisor
+    command: ## modify me ##
+       

@@ -1,0 +1,49 @@
+- name: install and configure nginx
+  hosts: node1
+  become: true
+  vars:
+      key_file: /etc/nginx/ssl/nginx.key
+      cert_file: /etc/nginx/ssl/nginx.crt
+      conf_file: /etc/nginx/sites-available/flask
+      enable_file: /etc/nginx/sites-enabled/default
+      index_file: /var/www/html/index.html
+  tasks:
+    - name: install nginx
+      apt:
+          update_cache: true
+          name: nginx
+          state: present
+    - name: create ssl directory
+      file:
+          path: /etc/nginx/ssl
+          state: directory
+    - name: copy tls key
+      copy:
+          src: files/nginx.key
+          dest: "{{ key_file }}"
+          owner: root
+          mode: 0600
+    - name: copy tls certificate
+      #############
+      # modify me #
+      #############
+    - name: copy nginx config file
+      template:
+          src: templates/nginx.conf.j2
+          dest: "{{ conf_file }}"
+      notify: restart nginx
+    - name: enable conf
+      file:
+          dest: "{{ enable_file }}"
+          src: "{{ conf_file }}"
+          state: link
+    - name: copy index.html
+      #############
+      # modify me #
+      #############
+  
+  handlers:
+    - name: restart nginx
+      service:
+          name: nginx
+          state: restarted

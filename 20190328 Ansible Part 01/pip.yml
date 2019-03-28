@@ -1,0 +1,11 @@
+- name: intall python packages
+  hosts: node1
+  tasks:
+      - name: copy requirements.txt
+        copy:
+            src: files/requirements.txt
+            dest: "{{ ansible_user_dir }}/requirements.txt"
+      - name: install pip
+        pip:
+            requirements: "{{ ansible_user_dir }}/requirements.txt"
+            virtualenv: "{{ ansible_user_dir }}/.virtualenv"

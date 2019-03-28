@@ -1,0 +1,25 @@
+server {
+        listen 80 default_server;
+        listen [::]:80 default_server;
+
+        # SSL configuration
+        listen 443 ssl default_server;
+        listen [::]:443 ssl default_server;
+
+        root /var/www/html;
+
+        index index.html index.htm;
+
+        server_name {{ ansible_all_ipv4_addresses[0] }}.xip.io;
+
+        ssl_certificate {{ cert_file }};
+        ssl_certificate_key {{ key_file }};
+
+        location /api/ {
+            proxy_pass http://127.0.0.1:5000;
+        }
+        
+        location / {
+                try_files $uri $uri/ =404;
+        }
+}
