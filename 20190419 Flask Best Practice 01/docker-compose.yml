@@ -1,0 +1,47 @@
+version: "3.5"
+
+services:
+  flask_sample:
+    image: blueswen/flask-best-practice:2.0
+    container_name: flask-notebook
+    networks:
+      - flask_network
+    environment:
+      - GRANT_SUDO=yes
+    user: root
+    ports:
+      - 8888:8888 # 前面 port 若已被佔用請自行更改
+      - 8899:8899 # 前面 port 若已被佔用請自行更改
+    volumes:
+      - ./sample_code/:/home/jovyan/work/
+  test_db:
+    image: "postgres:11"
+    container_name: "test_db-postgres"
+    networks:
+      - flask_network
+    environment:
+      - POSTGRES_DB=test_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - "5432:5432"
+    volumes:
+      - ./test_db:/var/lib/postgresql/data
+  stage_db:
+    image: "postgres:11"
+    container_name: "stage_db-postgres"
+    networks:
+      - flask_network
+    environment:
+      - POSTGRES_DB=stage_db
+      - POSTGRES_USER=admin
+      - POSTGRES_PASSWORD=1234
+    ports:
+      - "5433:5432"
+    volumes:
+      - ./stage_db:/var/lib/postgresql/data
+
+networks:
+  flask_network:
+    name: flask_network
+    driver: bridge

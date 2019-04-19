@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        // Mark the value as safe which means that in an environment with automatic escaping enabled this variable will not be escaped.
+        var test_dict = JSON.parse('{{test_dict|safe}}');
+        console.log(test_dict);
+        var test_list = JSON.parse('{{test_list|safe}}');
+        console.log(test_list);
+    </script>
+</head>
+
+<body>
+    {% block title %}{% endblock %}
+    {% if name %}
+    <h1>Hello {{ name }}!</h1>
+    {% else %}
+    <h1>Hello, World!</h1>
+    {% endif %}
+</body>
+
+</html>
