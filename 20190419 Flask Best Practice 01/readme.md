@@ -2,6 +2,7 @@
 Topic: Flask, RESTful, postgresql, mvc
 
 ### 執行
+建議使用 POSTMAN 進行 API 測試  
 ```
 docker-compose up -d
 docker-compose logs
