@@ -1,0 +1,26 @@
+version: "3.3"
+
+services:
+  flask_sample:
+    image: blueswen/flask-best-practice:2.0
+    container_name: flask-notebook
+    environment:
+      - GRANT_SUDO=yes
+    user: root
+    ports:
+      - 8888:8888 # 前面 port 若已被佔用請自行更改
+      - 8899:8899 # 前面 port 若已被佔用請自行更改
+    volumes:
+      - ./sample_code/:/home/jovyan/work/
+  openapi-ui:
+    image: swaggerapi/swagger-ui
+    container_name: swagger-ui
+    ports:
+      - 8080:8080 # 前面 port 若已被佔用請自行更改
+    volumes:
+      - ./swagger/:/usr/share/nginx/html/swagger/
+  openapi-editor:
+    image: swaggerapi/swagger-editor
+    container_name: swagger-editor
+    ports:
+      - 8081:8080 # 前面 port 若已被佔用請自行更改   
