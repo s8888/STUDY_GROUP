@@ -9,3 +9,5 @@ docker-compose up -d
 2. swagger-ui     8080
 3. jupyter-notebook  8899
 ```
+
+https://github.com/OAI/OpenAPI-Specification/blob/master/versions/3.0.0.md
