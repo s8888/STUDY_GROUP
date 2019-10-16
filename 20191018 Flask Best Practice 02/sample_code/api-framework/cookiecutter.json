@@ -1,0 +1,8 @@
+{
+    "project_name": "project_name",
+    "application_description": "application_description",
+    "docker_compose_docker_image": "blueswen/api-framework:v1.0.0",
+    "docker_compose_cpus": 2,
+    "docker_compose_mem_limit": "1G",
+    "expose_port": 6001
+}

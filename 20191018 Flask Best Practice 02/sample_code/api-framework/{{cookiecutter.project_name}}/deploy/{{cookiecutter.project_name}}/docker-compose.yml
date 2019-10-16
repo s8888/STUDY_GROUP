@@ -1,0 +1,20 @@
+# docker compose for development
+version: '2.3'
+
+services:
+  API:
+    image: {{cookiecutter.docker_compose_docker_image}}
+    restart: always
+    environment:
+      - FLASK_CONFIG=${FLASK_CONFIG}
+    env_file:
+      - ../env/${FLASK_CONFIG}.env
+    ports:
+      - "${API_PORT}:6001"
+    volumes:
+      - ../../:/root/flask
+      - ${MOUNT_ROOT}/${HOSTNAME}/back_file/:/root/flask/back_file/
+      - ${MOUNT_ROOT}/${HOSTNAME}/log/:/root/flask/log/
+    command: gunicorn -w 1 -k sync --timeout 240 --log-level $${GUNICORN_LOG_LEVEL} -b 0.0.0.0:6001 --chdir /root/flask app:app
+    cpus: {{cookiecutter.docker_compose_cpus}}
+    mem_limit: {{cookiecutter.docker_compose_mem_limit}}

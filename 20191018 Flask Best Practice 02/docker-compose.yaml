@@ -1,0 +1,14 @@
+version: "3.5"
+
+services:
+  flask_sample:
+    image: blueswen/flask-best-practice:3.0
+    container_name: flask-notebook
+    environment:
+      - GRANT_SUDO=yes
+    user: root
+    ports:
+      - 8888:8888 # 前面 port 若已被佔用請自行更改
+      - 6006:6001 # 前面 port 若已被佔用請自行更改
+    volumes:
+      - ./sample_code/:/home/jovyan/work/

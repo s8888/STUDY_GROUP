@@ -1,0 +1,36 @@
+version: '2.3'
+
+services:
+  API:
+    image: blueswen/api-framework:v1.0.0
+    container_name: sample_API
+    restart: always
+    environment:
+      - FLASK_CONFIG=${FLASK_CONFIG}
+    env_file:
+      - ../env/${FLASK_CONFIG}.env
+    volumes:
+      - ../../:/root/flask
+      - ${MOUNT_ROOT}/${HOSTNAME}/back_file/:/root/flask/back_file/
+      - ${MOUNT_ROOT}/${HOSTNAME}/log/:/root/flask/log/
+    command: gunicorn -w 1 -k sync --timeout 300 --log-level $${GUNICORN_LOG_LEVEL} -b 0.0.0.0:6001 --chdir /root/flask app:app
+    cpus: 2
+    mem_limit: 1G
+
+
+  PROXY:
+    image: nginx:1.17.1
+    container_name: sample_PROXY
+    restart: always
+    environment:
+      - FLASK_CONFIG=${FLASK_CONFIG}
+    env_file:
+      - ../env/${FLASK_CONFIG}.env
+    ports:
+      - "${API_PORT}:80"
+    cpus: '0.5'
+    mem_limit: 100M
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ${MOUNT_ROOT}/${HOSTNAME}/nginx_log/:/var/log/nginx
