@@ -1,0 +1,22 @@
+version: '3'
+
+services:
+  reverse-proxy:
+    # The official v2.0 Traefik docker image
+    image: traefik:v2.0
+    # Enables the web UI and tells Traefik to listen to docker
+    networks:
+    - webgateway
+    ports:
+    #- "80:80"
+    - "80:80"
+    - "8080:8080"
+    volumes:
+    # So that Traefik can listen to the Docker events
+    - /var/run/docker.sock:/var/run/docker.sock
+    - $PWD/traefik.toml:/etc/traefik/traefik.toml
+
+networks:
+  webgateway:
+    external: true
+

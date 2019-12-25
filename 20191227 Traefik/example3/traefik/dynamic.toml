@@ -1,0 +1,14 @@
+[http]
+
+  [http.routers]
+     [http.routers.Router-1]
+        entryPoints = ["http"]
+        rule = "PathPrefix(`/whoami`)"
+        service = "service-dash"
+
+
+  [http.services]
+     [http.services.service-dash.loadBalancer]
+        [[http.services.service-dash.loadBalancer.servers]]
+            url = "http://172.17.0.1:7777"
+

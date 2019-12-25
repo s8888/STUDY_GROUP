@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+   whoami:
+      image: containous/whoami
+      networks:
+      - webgateway
+      ports: 
+        - "7777:80"
+      labels:
+        - "traefik.http.routers.whoami.rule=PathPrefix(`/whoami`)"
+
+networks:
+  webgateway:
+    external: true

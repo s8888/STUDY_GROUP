@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+   whoami:
+      image: containous/whoami
+      networks:
+        - webgateway
+      labels:
+        - "traefik.http.routers.whoami.rule=PathPrefix(`/whoami`)"
+        #- "traefik.docker.network=webgateway"
+
+networks:
+   webgateway:
+      external: true
