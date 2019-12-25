@@ -1,6 +1,6 @@
-Traefik V2.0 ¤¶²Ğ
+Traefik V2.0 ä»‹ç´¹
 
-Àô¹Ò»İ¨D: 
+ç’°å¢ƒéœ€æ±‚: 
 1. docker
 2. docker-compose
 
@@ -8,15 +8,17 @@ used images:
 1. traefik:v2.0
 2. containous/whoami
 
-°õ¦æ½T»{
-example0 ¸ê®Æ§¨¤U°õ¦æ
+åŸ·è¡Œç¢ºèª:
+example0 è³‡æ–™å¤¾ä¸‹åŸ·è¡Œ
 docker-compose up -d
 
-¥¿±`ªº¸Ü
-8080 port ·|¦³ Dashboard
-curl -H Host:whoami.docker.localhost http://127.0.0.1 ·|¦³°T®§¦^¶Ç
+æ­£å¸¸çš„è©±:
+8080 port æœƒæœ‰ Dashboard
+curl -H Host:whoami.docker.localhost http://127.0.0.1 æœƒæœ‰è¨Šæ¯å›å‚³
 
 
-©xºô
+
+
+å®˜ç¶²
 https://docs.traefik.io/
 
