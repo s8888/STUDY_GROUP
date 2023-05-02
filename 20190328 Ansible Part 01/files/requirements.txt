@@ -1,3 +1,2 @@
-flask==lastest
 gunicorn==19.9.0
 supervisor==3.3.5
