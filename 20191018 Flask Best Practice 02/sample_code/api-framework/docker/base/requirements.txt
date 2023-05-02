@@ -1,5 +1,5 @@
 Keras==2.2.5
-numpy==1.16.5
+numpy==1.22.0
 pandas==0.25.1
 
 scikit-image==0.15.0
